@@ -8,17 +8,43 @@
 </head>
 <body>
 
-    <h1>🍽️ NYC Restaurant Recommendation 🍽️</h1>
-    <p>Sharing the best spots in NYC!!</p>
+    <header>
+        <h1>🍽️ NYC Restaurant Recommendation 🍽️</h1>
+        <p>Sharing the best spots in NYC!!</p>
+    </header>
 
-    <img src="Raku.webp" alt="Delicious meal">
-    <p>Raku, Soho, this is the best spot if you are craving for udon. </p>
-    <img src="raku_japanese_fried_chicken.jpg" alt="Delicious meal">
-    <p>Besides from udon, their japanese friend chicken is also really good. </p>
+    <main>
+        <section>
+            <article>
+                <h2>Raku, Soho</h2>
+                <p>This is the best spot if you are craving udon.</p>
+                <figure>
+                    <img src="Raku.webp" alt="Raku Udon in Soho">
+                    <figcaption>Signature Udon at Raku</figcaption>
+                </figure>
+            </article>
 
-    
-    <!-- **Quote Section** -->
-    <p id="quote">Loading quote...</p>
+            <article>
+                <h2>Japanese Fried Chicken</h2>
+                <p>Besides udon, their Japanese fried chicken is also really good.</p>
+                <figure>
+                    <img src="raku_japanese_fried_chicken.jpg" alt="Japanese Fried Chicken">
+                    <figcaption>Crispy Japanese Fried Chicken at Raku</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <!-- **Joke Section** -->
+        <section>
+            <h2>Today's Joke</h2>
+            <p id="quote">Loading joke...</p>
+            <button id="newJokeButton">Get a New Joke</button>  <!-- New Joke Button -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 NYC Restaurant Recommendation | Made with ❤️</p>
+    </footer>
 
     <script>
     async function fetchJoke() {
@@ -36,10 +62,12 @@
         }
     }
 
+    // Fetch a joke when the page loads
     fetchJoke();
+
+    // Fetch a new joke when the button is clicked
+    document.getElementById("newJokeButton").addEventListener("click", fetchJoke);
     </script>
 
-
-    
 </body>
 </html>
