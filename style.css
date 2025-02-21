@@ -20,15 +20,17 @@ article {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Image Styling */
+/* Image Styling */ 
 img {
-    max-width: 100%;  /* Ensures image never exceeds the container width */
+    max-width: 90%;  /* Limits width to 90% of the screen */
     height: auto;     /* Maintains aspect ratio */
     display: block;   /* Removes extra space below images */
-    margin: 10px auto; /* Centers images */
+    margin: 20px auto; /* Centers images */
     border-radius: 10px; /* Optional: rounded corners */
-    max-height: 500px; /* Prevents images from getting too large */
+    max-height: 400px; /* Prevents images from being too tall */
+    object-fit: cover; /* Ensures the image scales properly inside its container */
 }
+
 
 
 #quote {
