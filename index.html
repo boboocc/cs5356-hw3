@@ -9,7 +9,7 @@
 <body>
 
     <h1>🍽️ NYC Restaurant Recommendation 🍽️</h1>
-    <p>Sharing the best spots in NYC!</p>
+    <p>Sharing the best spots in NYC!!</p>
 
     <img src="Raku.webp" alt="Delicious meal">
     <p>Raku, Soho, this is the best spot if you are craving for udon. </p>
@@ -21,24 +21,24 @@
     <p id="quote">Loading quote...</p>
 
     <script>
-    async function fetchQuote() {
+    async function fetchJoke() {
         try {
-            const response = await fetch('https://api.quotable.io/random');
-
-            // Check if response is OK (status 200)
-            if (!response.ok) {
-                throw new Error("API response not OK");
-            }
-
+            const response = await fetch('https://v2.jokeapi.dev/joke/Any?type=twopart');
             const data = await response.json();
-            document.getElementById("quote").innerText = `"${data.content}" - ${data.author}`;
+
+            if (data.type === "twopart") {
+                document.getElementById("quote").innerText = `${data.setup} - ${data.delivery}`;
+            } else {
+                document.getElementById("quote").innerText = data.joke;
+            }
         } catch (error) {
-            console.error("Error fetching quote:", error);
-            document.getElementById("quote").innerText = "⚠️ Unable to load quote. Please refresh.";
+            document.getElementById("quote").innerText = "Failed to load joke.";
         }
     }
-    fetchQuote();
+
+    fetchJoke();
     </script>
+
 
     
 </body>
