@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 50px;
+    background-color: #DBD4C6;  /* Morandi-style color */
 }
 
 .container {
