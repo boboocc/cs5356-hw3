@@ -20,11 +20,16 @@ article {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-figure img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
+/* Image Styling */
+img {
+    max-width: 100%;  /* Ensures image never exceeds the container width */
+    height: auto;     /* Maintains aspect ratio */
+    display: block;   /* Removes extra space below images */
+    margin: 10px auto; /* Centers images */
+    border-radius: 10px; /* Optional: rounded corners */
+    max-height: 500px; /* Prevents images from getting too large */
 }
+
 
 #quote {
     font-style: italic;
