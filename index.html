@@ -32,13 +32,24 @@
             </article>
         </section>
 
-        <!-- New Favorite Dish Section -->
+        <!-- Details -->
         <section>
             <h2>Want to See My Favorite Dish?</h2>
             <details>
                 <summary>Click to Reveal</summary>
                 <p>My favorite dish is <strong>Tonkotsu Udon</strong> at Raku! 🍜</p>
             </details>
+        </section>
+
+        <!-- Dialog -->
+        <section>
+            <h2>Click Below to See a Surprise!</h2>
+            <button id="showDialog">Open Surprise</button>
+        
+            <dialog id="myDialog">
+                <p>🍣 Sushi is also one of my favorite foods!</p>
+                <button id="closeDialog">Close</button>
+            </dialog>
         </section>
 
         <!-- **Joke Section** -->
@@ -49,6 +60,13 @@
         </section>
     </main>
 
+    <!-- Dialog -->
+    <script>
+        const dialog = document.getElementById("myDialog");
+        document.getElementById("showDialog").addEventListener("click", () => dialog.showModal());
+        document.getElementById("closeDialog").addEventListener("click", () => dialog.close());
+    </script>
+        
     <footer>
         <p>© 2025 NYC Restaurant Recommendation | Made with ❤️</p>
     </footer>
