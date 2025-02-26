@@ -19,49 +19,18 @@
     <meta name="twitter:description" content="Discover the best restaurants in NYC! From udon to Japanese fried chicken, check out my top picks.">
     <meta name="twitter:image" content="https://boboocc.github.io/cs5356-hw3/images/Raku.webp">
     <meta name="twitter:url" content="https://boboocc.github.io/cs5356-hw3/">
-
 </head>
 
-    <!-- extra credit: interactivity on click, showing 🍜 emoji when user clicks on anywhere of the website -->
-    <script>
-    document.addEventListener("click", function(event) {
-        let emoji = document.createElement("span");
-        emoji.innerText = "🍜"; // Change to any emoji
-        emoji.style.position = "absolute";
-        emoji.style.left = `${event.clientX}px`;
-        emoji.style.top = `${event.clientY}px`;
-        emoji.style.fontSize = "24px";
-        emoji.style.pointerEvents = "none";
-        emoji.style.animation = "floatUp 1s ease-out forwards";
-        
-        document.body.appendChild(emoji);
-        
-        setTimeout(() => {
-            emoji.remove(); // Remove emoji after animation
-        }, 1000);
-    });
-    
-    // Add floating animation
-    let style = document.createElement("style");
-    style.innerHTML = `
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-50px); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
-    </script>
-
-    
 <body>
 
     <header>
         <h1>🍽️ NYC Restaurant Recommendation 🍽️</h1>
-        <p>Sharing the best spots in NYC!!</p>
+        <p>Sharing the best spots in NYC!</p>
     </header>
 
     <main>
-        <section>
+        <!-- Restaurant List -->
+        <section class="restaurant-list">
             <article>
                 <h2>Raku, Soho</h2>
                 <p>This is the best spot if you are craving udon.</p>
@@ -69,7 +38,9 @@
                     <img src="images/Raku.webp" alt="Raku Udon in Soho">
                     <figcaption>Raku Soho Storefront</figcaption>
                 </figure>
-           
+            </article>
+
+            <article>
                 <h2>Japanese Fried Chicken</h2>
                 <p>Besides udon, their Japanese fried chicken is also really good.</p>
                 <figure>
@@ -79,94 +50,93 @@
             </article>
         </section>
 
-        <!-- Details -->
-        <section>
-            <h2>Want to See My Favorite Dish?</h2>
-            <details>
-                <summary>Click to Reveal</summary>
-                <p>My favorite dish is <strong>Tonkotsu Udon</strong> at Raku! 🍜</p>
-            </details>
+        <!-- Extra Features -->
+        <section class="interactive-features">
+            <article>
+                <h2>Want to See My Favorite Dish?</h2>
+                <details>
+                    <summary>Click to Reveal</summary>
+                    <p>My favorite dish is <strong>Tonkotsu Udon</strong> at Raku! 🍜</p>
+                </details>
+            </article>
+
+            <article>
+                <h2>Click Below to See a Surprise!</h2>
+                <button id="showDialog">Open Surprise</button>
+
+                <dialog id="myDialog">
+                    <p>🍣 Sushi is also one of my favorite foods!</p>
+                    <button id="closeDialog">Close</button>
+                </dialog>
+            </article>
         </section>
 
-        <!-- Dialog -->
-        <section>
-            <h2>Click Below to See a Surprise!</h2>
-            <button id="showDialog">Open Surprise</button>
-        
-            <dialog id="myDialog">
-                <p>🍣 Sushi is also one of my favorite foods!</p>
-                <button id="closeDialog">Close</button>
-            </dialog>
-        </section>
-
-        <!-- **Joke Section** -->
-        <section>
+        <!-- Joke Section -->
+        <section class="joke-section">
             <h2>Today's Joke</h2>
             <p id="quote">Loading joke...</p>
-            <button id="newJokeButton">Get a New Joke</button>  <!-- New Joke Button -->
+            <button id="newJokeButton">Get a New Joke</button>
         </section>
+
+        <!-- Project Insights -->
+        <aside class="project-insights">
+            <h2>📌 Project Insights ✏️</h2>
+
+            <article>
+                <h3>📌 HTML Elements Used: &lt;details&gt; &amp; &lt;dialog&gt;</h3>
+                <p>
+                    For this project, I explored the <code>&lt;details&gt;</code> and <code>&lt;dialog&gt;</code> elements in HTML.
+                    The <code>&lt;details&gt;</code> element creates a built-in collapsible section that users can click to expand or hide content, making it useful for FAQs or hidden details.
+                    The <code>&lt;dialog&gt;</code> element allows me to create a pop-up modal that can be opened and closed dynamically with JavaScript, which is useful for alerts or additional user interactions.
+                </p>
+            </article>
+
+            <article>
+                <h3>🎨 CSS Property Used: Smooth Transitions</h3>
+                <p>
+                    I explored the <code>transition</code> property, which allows elements to animate smoothly when they change state.
+                    I used it to add a hover effect on images, making them slightly enlarge when hovered over.
+                    This makes the UI feel more interactive and visually appealing.
+                </p>
+            </article>
+
+            <article>
+                <h3>⭐ Extra Credit: JavaScript Interactivity</h3>
+                <p>
+                    I explored JavaScript event listeners, specifically the <code>mousemove</code> and <code>click</code> events.
+                    I implemented a fun emoji effect on click, where a 🍜 emoji appears at the cursor position and floats upward before disappearing.
+                    This was a great way to understand real-time event handling and enhance user engagement!
+                </p>
+            </article>
+        </aside>
     </main>
 
-    <!-- Dialog -->
-    <script>
-        const dialog = document.getElementById("myDialog");
-        document.getElementById("showDialog").addEventListener("click", () => dialog.showModal());
-        document.getElementById("closeDialog").addEventListener("click", () => dialog.close());
-    </script>
-    
-    <!-- Project Insights -->
-    <section class="project-insights">
-        <h2>📌 Project Insights ✏️</h2>
-    
-        <h3>📌 HTML Elements Used: &lt;details&gt; &amp; &lt;dialog&gt;</h3>
-        <p>
-            For this project, I explored the <code>&lt;details&gt;</code> and <code>&lt;dialog&gt;</code> elements in HTML.
-            The <code>&lt;details&gt;</code> element creates a built-in collapsible section that users can click to expand or hide content, making it useful for FAQs or hidden details.
-            The <code>&lt;dialog&gt;</code> element allows me to create a pop-up modal that can be opened and closed dynamically with JavaScript, which is useful for alerts or additional user interactions.
-        </p>
-    
-        <h3>🎨 CSS Property Used: Smooth Transitions</h3>
-        <p>
-            I explored the <code>transition</code> property, which allows elements to animate smoothly when they change state.
-            I used it to add a hover effect on images, making them slightly enlarge when hovered over.
-            This makes the UI feel more interactive and visually appealing.
-        </p>
-    
-        <h3>⭐ Extra Credit: JavaScript Interactivity</h3>
-        <p>
-            I explored JavaScript event listeners, specifically the <code>mousemove</code> and <code>click</code> events.
-            I implemented a fun emoji effect on click, where a 🍜 emoji appears at the cursor position and floats upward before disappearing.
-            This was a great way to understand real-time event handling and enhance user engagement!
-        </p>
-    </section>
-
-    
-        
     <footer>
         <p>© 2025 NYC Restaurant Recommendation | Made with ❤️</p>
     </footer>
 
     <script>
-    async function fetchJoke() {
-        try {
-            const response = await fetch('https://v2.jokeapi.dev/joke/Any?type=twopart');
-            const data = await response.json();
+        async function fetchJoke() {
+            try {
+                const response = await fetch('https://v2.jokeapi.dev/joke/Any?type=twopart');
+                const data = await response.json();
 
-            if (data.type === "twopart") {
-                document.getElementById("quote").innerText = `${data.setup} - ${data.delivery}`;
-            } else {
-                document.getElementById("quote").innerText = data.joke;
+                if (data.type === "twopart") {
+                    document.getElementById("quote").innerText = `${data.setup} - ${data.delivery}`;
+                } else {
+                    document.getElementById("quote").innerText = data.joke;
+                }
+            } catch (error) {
+                document.getElementById("quote").innerText = "Failed to load joke.";
             }
-        } catch (error) {
-            document.getElementById("quote").innerText = "Failed to load joke.";
         }
-    }
 
-    // Fetch a joke when the page loads
-    fetchJoke();
+        fetchJoke();
+        document.getElementById("newJokeButton").addEventListener("click", fetchJoke);
 
-    // Fetch a new joke when the button is clicked
-    document.getElementById("newJokeButton").addEventListener("click", fetchJoke);
+        const dialog = document.getElementById("myDialog");
+        document.getElementById("showDialog").addEventListener("click", () => dialog.showModal());
+        document.getElementById("closeDialog").addEventListener("click", () => dialog.close());
     </script>
 
 </body>
