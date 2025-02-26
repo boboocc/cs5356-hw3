@@ -6,6 +6,38 @@
     <title>NYC Restaurant Recommendation</title>
     <link rel="stylesheet" href="style.css">  <!-- Link to style.css -->
 </head>
+
+    <!-- extra credit: interactivity on click -->
+    <script>
+    document.addEventListener("click", function(event) {
+        let emoji = document.createElement("span");
+        emoji.innerText = "🍜"; // Change to any emoji
+        emoji.style.position = "absolute";
+        emoji.style.left = `${event.clientX}px`;
+        emoji.style.top = `${event.clientY}px`;
+        emoji.style.fontSize = "24px";
+        emoji.style.pointerEvents = "none";
+        emoji.style.animation = "floatUp 1s ease-out forwards";
+        
+        document.body.appendChild(emoji);
+        
+        setTimeout(() => {
+            emoji.remove(); // Remove emoji after animation
+        }, 1000);
+    });
+    
+    // Add floating animation
+    let style = document.createElement("style");
+    style.innerHTML = `
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-50px); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+    </script>
+
+    
 <body>
 
     <header>
